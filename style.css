@@ -1,0 +1,610 @@
+/* style.css - ADD THESE NEW STYLES */
+
+/* Luxury Theme Variables */
+:root {
+    --gold: #FFD700;
+    --silver: #C0C0C0;
+    --platinum: #E5E4E2;
+    --diamond: #B9F2FF;
+    --ruby: #E0115F;
+    --emerald: #50C878;
+    --sapphire: #0F52BA;
+    --amethyst: #9966CC;
+    --midnight: #0a0a1f;
+    --royal-blue: #1a1a3e;
+    --luxury-gold: linear-gradient(45deg, #FFD700, #FFC107, #FFD700);
+    --luxury-silver: linear-gradient(45deg, #C0C0C0, #E5E4E2, #C0C0C0);
+    --luxury-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 100%);
+}
+
+/* Floating Icons */
+.floating-icons {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.floating-icon {
+    position: absolute;
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.1);
+    animation: float 20s infinite linear;
+}
+
+.floating-icon:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+.floating-icon:nth-child(2) { top: 20%; left: 85%; animation-delay: -5s; }
+.floating-icon:nth-child(3) { top: 50%; left: 10%; animation-delay: -10s; }
+.floating-icon:nth-child(4) { top: 70%; left: 80%; animation-delay: -15s; }
+.floating-icon:nth-child(5) { top: 30%; left: 70%; animation-delay: -2s; }
+.floating-icon:nth-child(6) { top: 60%; left: 90%; animation-delay: -8s; }
+.floating-icon:nth-child(7) { top: 80%; left: 15%; animation-delay: -12s; }
+.floating-icon:nth-child(8) { top: 40%; left: 30%; animation-delay: -18s; }
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0.1;
+    }
+    25% {
+        transform: translate(100px, 50px) rotate(90deg);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translate(50px, 100px) rotate(180deg);
+        opacity: 0.1;
+    }
+    75% {
+        transform: translate(-50px, 50px) rotate(270deg);
+        opacity: 0.3;
+    }
+}
+
+/* Luxury Header */
+.luxury-header {
+    background: linear-gradient(135deg, var(--midnight) 0%, var(--royal-blue) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.luxury-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+    animation: pulse 10s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.3; }
+    100% { opacity: 0.7; }
+}
+
+/* Luxury Hero */
+.luxury-hero {
+    background: linear-gradient(135deg, 
+        rgba(26, 26, 62, 0.95) 0%,
+        rgba(42, 42, 94, 0.95) 50%,
+        rgba(26, 26, 62, 0.95) 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 120px 0;
+}
+
+.luxury-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="none" width="100" height="100"/><path fill="rgba(255,255,255,0.03)" d="M0,0 L100,0 L100,100 Z"/><path fill="rgba(255,255,255,0.02)" d="M0,0 L0,100 L100,100 Z"/></svg>'),
+        radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(192, 192, 192, 0.1) 0%, transparent 50%);
+    animation: shimmer 20s infinite linear;
+}
+
+@keyframes shimmer {
+    0% { background-position: 0 0; }
+    100% { background-position: 100px 100px; }
+}
+
+/* Luxury Search Box */
+.luxury-search-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 0 100px rgba(102, 126, 234, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.luxury-search-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 70%
+    );
+    animation: shine 3s infinite;
+    transform: rotate(45deg);
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}
+
+/* Luxury Button */
+.luxury-btn {
+    background: var(--luxury-gradient);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.2),
+        0 0 20px rgba(102, 126, 234, 0.3);
+}
+
+.luxury-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 15px 30px rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(102, 126, 234, 0.5);
+}
+
+.luxury-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.luxury-btn:hover::before {
+    left: 100%;
+}
+
+/* Luxury Cards */
+.luxury-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.luxury-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--luxury-gradient);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.luxury-card:hover::before {
+    transform: scaleX(1);
+}
+
+.luxury-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 0 50px rgba(102, 126, 234, 0.2);
+}
+
+/* Domain Card Luxury */
+.luxury-domain-card {
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0.05) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 15px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.luxury-domain-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--luxury-gradient);
+    border-radius: 17px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.luxury-domain-card:hover::before {
+    opacity: 1;
+}
+
+.luxury-domain-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Stats Cards Luxury */
+.luxury-stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.luxury-stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--luxury-gradient);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.luxury-stat-card:hover::before {
+    opacity: 0.1;
+}
+
+.luxury-stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Luxury Input */
+.luxury-input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 15px 20px;
+    color: white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.luxury-input:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.luxury-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Luxury Select */
+.luxury-select {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 15px 20px;
+    color: white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+}
+
+.luxury-select:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+/* Extension Tags Luxury */
+.luxury-extension-tag {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.luxury-extension-tag:hover {
+    background: rgba(102, 126, 234, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.luxury-extension-tag.active {
+    background: var(--luxury-gradient);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Price Display Luxury */
+.luxury-price {
+    font-size: 2rem;
+    font-weight: bold;
+    background: var(--luxury-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Status Badges Luxury */
+.luxury-status {
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-weight: 600;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.luxury-status.available {
+    background: linear-gradient(45deg, #28a745, #20c997);
+    color: white;
+    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+}
+
+.luxury-status.registered {
+    background: linear-gradient(45deg, #dc3545, #ff6b6b);
+    color: white;
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+}
+
+/* Dashboard Luxury Styles */
+.luxury-dashboard-header {
+    background: linear-gradient(135deg, var(--midnight) 0%, var(--royal-blue) 100%);
+    padding: 40px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.luxury-dashboard-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(192, 192, 192, 0.1) 0%, transparent 40%);
+}
+
+/* Table Luxury */
+.luxury-table {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.luxury-table th {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-weight: 600;
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.luxury-table td {
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.luxury-table tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Chart Container Luxury */
+.luxury-chart {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated Background */
+.animated-bg {
+    position: relative;
+    overflow: hidden;
+}
+
+.animated-bg::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.03) 50%,
+        transparent 70%
+    );
+    animation: bg-shimmer 8s infinite linear;
+}
+
+@keyframes bg-shimmer {
+    0% { transform: rotate(0deg) translateX(-50%); }
+    100% { transform: rotate(360deg) translateX(-50%); }
+}
+
+/* Glass Morphism Effect */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Particle Animation */
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    animation: particle-float 15s infinite linear;
+}
+
+@keyframes particle-float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Typing Animation */
+.typing-animation {
+    overflow: hidden;
+    border-right: 3px solid var(--gold);
+    white-space: nowrap;
+    animation: 
+        typing 3.5s steps(40, end),
+        blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--gold) }
+}
+
+/* Fade In Animation */
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Slide In Animation */
+.slide-in-left {
+    animation: slideInLeft 0.8s ease-out;
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Bounce Animation */
+.bounce {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Pulse Animation */
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Gradient Text */
+.gradient-text {
+    background: var(--luxury-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .luxury-search-box {
+        padding: 20px;
+    }
+    
+    .luxury-hero {
+        padding: 60px 0;
+    }
+    
+    .floating-icon {
+        font-size: 16px;
+    }
+}
